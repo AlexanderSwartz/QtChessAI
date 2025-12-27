@@ -3,6 +3,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QPixmap>
+#include <QPainter>
 
 const QString pieceFiles[13] = {"", "w-pawn.png", "w-knight.png", "w-bishop.png", "w-rook.png", "w-queen.png", "w-king.png", "b-pawn.png", "b-knight.png", "b-bishop.png", "b-rook.png", "b-queen.png", "b-king.png"};
 
@@ -175,6 +176,8 @@ void MainWindow::clearMoveIndicators()
     for (int r = 0; r < 8; ++r) {
         for (int c = 0; c < 8; ++c) {
             if (hasMoveIndicator[r][c]) {
+                QString bgColor = ((r + c) % 2 == 0) ? "#f0d9b5" : "#b58863";
+                boardLabels[r][c]->setStyleSheet(QString("background-color: %1; margin: 0; padding: 0; border: none;").arg(bgColor));
                 int boardR = 7 - r;
                 Piece p = board.getPiece(boardR, c);
                 if (p != EMPTY) {
@@ -214,7 +217,13 @@ void MainWindow::showPawnMoves(int boardRow, int col, Piece p)
             Piece target = board.getPiece(capRow, newC);
             if (target != EMPTY && isWhitePiece(target) != isWhitePiece(p)) {
                 int visualR = 7 - capRow;
-                boardLabels[visualR][newC]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                bool isLight = ((visualR + newC) % 2 == 0);
+                QString bgImage = isLight ? "capturable_light.png" : "capturable_dark.png";
+                QPixmap bgPixmap("../Chess/pieces/" + bgImage);
+                QPixmap piecePixmap("../Chess/pieces/" + pieceFiles[target]);
+                QPainter painter(&bgPixmap);
+                painter.drawPixmap(0, 0, piecePixmap);
+                boardLabels[visualR][newC]->setPixmap(bgPixmap);
                 boardLabels[visualR][newC]->setScaledContents(true);
                 hasMoveIndicator[visualR][newC] = true;
             }
@@ -235,12 +244,21 @@ void MainWindow::showKnightMoves(int boardRow, int col, Piece p)
         int newCol = col + deltas[i][1];
         if (newRow >= 0 && newRow < 8 && newCol >= 0 && newCol < 8) {
             Piece target = board.getPiece(newRow, newCol);
-            if (target == EMPTY || isWhitePiece(target) != isWhitePiece(p)) {
-                int visualR = 7 - newRow;
+            int visualR = 7 - newRow;
+            if (target == EMPTY) {
                 boardLabels[visualR][newCol]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
                 boardLabels[visualR][newCol]->setScaledContents(true);
-                hasMoveIndicator[visualR][newCol] = true;
+            } else if (isWhitePiece(target) != isWhitePiece(p)) {
+                bool isLight = ((visualR + newCol) % 2 == 0);
+                QString bgImage = isLight ? "capturable_light.png" : "capturable_dark.png";
+                QPixmap bgPixmap("../Chess/pieces/" + bgImage);
+                QPixmap piecePixmap("../Chess/pieces/" + pieceFiles[target]);
+                QPainter painter(&bgPixmap);
+                painter.drawPixmap(0, 0, piecePixmap);
+                boardLabels[visualR][newCol]->setPixmap(bgPixmap);
+                boardLabels[visualR][newCol]->setScaledContents(true);
             }
+            hasMoveIndicator[visualR][newCol] = true;
         }
     }
 }
@@ -255,15 +273,20 @@ void MainWindow::showBishopMoves(int boardRow, int col, Piece p)
         int c = col + dc;
         while (r >= 0 && r < 8 && c >= 0 && c < 8) {
             Piece target = board.getPiece(r, c);
+            int visualR = 7 - r;
             if (target == EMPTY) {
-                int visualR = 7 - r;
                 boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
                 boardLabels[visualR][c]->setScaledContents(true);
                 hasMoveIndicator[visualR][c] = true;
             } else {
                 if (isWhitePiece(target) != isWhitePiece(p)) {
-                    int visualR = 7 - r;
-                    boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                    bool isLight = ((visualR + c) % 2 == 0);
+                    QString bgImage = isLight ? "capturable_light.png" : "capturable_dark.png";
+                    QPixmap bgPixmap("../Chess/pieces/" + bgImage);
+                    QPixmap piecePixmap("../Chess/pieces/" + pieceFiles[target]);
+                    QPainter painter(&bgPixmap);
+                    painter.drawPixmap(0, 0, piecePixmap);
+                    boardLabels[visualR][c]->setPixmap(bgPixmap);
                     boardLabels[visualR][c]->setScaledContents(true);
                     hasMoveIndicator[visualR][c] = true;
                 }
@@ -285,15 +308,20 @@ void MainWindow::showRookMoves(int boardRow, int col, Piece p)
         int c = col + dc;
         while (r >= 0 && r < 8 && c >= 0 && c < 8) {
             Piece target = board.getPiece(r, c);
+            int visualR = 7 - r;
             if (target == EMPTY) {
-                int visualR = 7 - r;
                 boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
                 boardLabels[visualR][c]->setScaledContents(true);
                 hasMoveIndicator[visualR][c] = true;
             } else {
                 if (isWhitePiece(target) != isWhitePiece(p)) {
-                    int visualR = 7 - r;
-                    boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                    bool isLight = ((visualR + c) % 2 == 0);
+                    QString bgImage = isLight ? "capturable_light.png" : "capturable_dark.png";
+                    QPixmap bgPixmap("../Chess/pieces/" + bgImage);
+                    QPixmap piecePixmap("../Chess/pieces/" + pieceFiles[target]);
+                    QPainter painter(&bgPixmap);
+                    painter.drawPixmap(0, 0, piecePixmap);
+                    boardLabels[visualR][c]->setPixmap(bgPixmap);
                     boardLabels[visualR][c]->setScaledContents(true);
                     hasMoveIndicator[visualR][c] = true;
                 }
@@ -315,15 +343,20 @@ void MainWindow::showQueenMoves(int boardRow, int col, Piece p)
         int c = col + dc;
         while (r >= 0 && r < 8 && c >= 0 && c < 8) {
             Piece target = board.getPiece(r, c);
+            int visualR = 7 - r;
             if (target == EMPTY) {
-                int visualR = 7 - r;
                 boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
                 boardLabels[visualR][c]->setScaledContents(true);
                 hasMoveIndicator[visualR][c] = true;
             } else {
                 if (isWhitePiece(target) != isWhitePiece(p)) {
-                    int visualR = 7 - r;
-                    boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                    bool isLight = ((visualR + c) % 2 == 0);
+                    QString bgImage = isLight ? "capturable_light.png" : "capturable_dark.png";
+                    QPixmap bgPixmap("../Chess/pieces/" + bgImage);
+                    QPixmap piecePixmap("../Chess/pieces/" + pieceFiles[target]);
+                    QPainter painter(&bgPixmap);
+                    painter.drawPixmap(0, 0, piecePixmap);
+                    boardLabels[visualR][c]->setPixmap(bgPixmap);
                     boardLabels[visualR][c]->setScaledContents(true);
                     hasMoveIndicator[visualR][c] = true;
                 }
@@ -343,12 +376,21 @@ void MainWindow::showKingMoves(int boardRow, int col, Piece p)
         int c = col + directions[d][1];
         if (r >= 0 && r < 8 && c >= 0 && c < 8) {
             Piece target = board.getPiece(r, c);
-            if (target == EMPTY || isWhitePiece(target) != isWhitePiece(p)) {
-                int visualR = 7 - r;
+            int visualR = 7 - r;
+            if (target == EMPTY) {
                 boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
                 boardLabels[visualR][c]->setScaledContents(true);
-                hasMoveIndicator[visualR][c] = true;
+            } else if (isWhitePiece(target) != isWhitePiece(p)) {
+                bool isLight = ((visualR + c) % 2 == 0);
+                QString bgImage = isLight ? "capturable_light.png" : "capturable_dark.png";
+                QPixmap bgPixmap("../Chess/pieces/" + bgImage);
+                QPixmap piecePixmap("../Chess/pieces/" + pieceFiles[target]);
+                QPainter painter(&bgPixmap);
+                painter.drawPixmap(0, 0, piecePixmap);
+                boardLabels[visualR][c]->setPixmap(bgPixmap);
+                boardLabels[visualR][c]->setScaledContents(true);
             }
+            hasMoveIndicator[visualR][c] = true;
         }
     }
 }

@@ -280,3 +280,7 @@ C:/Users/198a9/anaconda3/Library/include/qt/QtWidgets/qlayout.h
 C:/Users/198a9/anaconda3/Library/include/qt/QtWidgets/qgridlayout.h
 C:/Users/198a9/anaconda3/Library/include/qt/QtWidgets/QLabel
 C:/Users/198a9/anaconda3/Library/include/qt/QtGui/QPixmap
+C:/Users/198a9/anaconda3/Library/include/qt/QtGui/QPainter
+C:/Users/198a9/anaconda3/Library/include/qt/QtGui/qpainter.h
+C:/Users/198a9/anaconda3/Library/include/qt/QtGui/qtextoption.h
+C:/Users/198a9/anaconda3/Library/include/qt/QtGui/qpen.h
