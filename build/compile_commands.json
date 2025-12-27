@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/gitRepos/QtChessAI/build",
+  "command": "C:\\PROGRA~2\\MICROS~2\\18\\BUILDT~1\\VC\\Tools\\MSVC\\1450~1.357\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -IC:\\gitRepos\\QtChessAI\\build\\Chess_autogen\\include -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtWidgets -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtGui -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtANGLE -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtCore -external:IC:\\Users\\198a9\\anaconda3\\Library\\.\\mkspecs\\win32-msvc -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd /FoCMakeFiles\\Chess.dir\\Chess_autogen\\mocs_compilation.cpp.obj /FdCMakeFiles\\Chess.dir\\ /FS -c C:\\gitRepos\\QtChessAI\\build\\Chess_autogen\\mocs_compilation.cpp",
+  "file": "C:/gitRepos/QtChessAI/build/Chess_autogen/mocs_compilation.cpp",
+  "output": "CMakeFiles/Chess.dir/Chess_autogen/mocs_compilation.cpp.obj"
+},
+{
+  "directory": "C:/gitRepos/QtChessAI/build",
+  "command": "C:\\PROGRA~2\\MICROS~2\\18\\BUILDT~1\\VC\\Tools\\MSVC\\1450~1.357\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -IC:\\gitRepos\\QtChessAI\\build\\Chess_autogen\\include -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtWidgets -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtGui -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtANGLE -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtCore -external:IC:\\Users\\198a9\\anaconda3\\Library\\.\\mkspecs\\win32-msvc -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd /FoCMakeFiles\\Chess.dir\\main.cpp.obj /FdCMakeFiles\\Chess.dir\\ /FS -c C:\\gitRepos\\QtChessAI\\Chess\\main.cpp",
+  "file": "C:/gitRepos/QtChessAI/Chess/main.cpp",
+  "output": "CMakeFiles/Chess.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/gitRepos/QtChessAI/build",
+  "command": "C:\\PROGRA~2\\MICROS~2\\18\\BUILDT~1\\VC\\Tools\\MSVC\\1450~1.357\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -IC:\\gitRepos\\QtChessAI\\build\\Chess_autogen\\include -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtWidgets -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtGui -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtANGLE -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtCore -external:IC:\\Users\\198a9\\anaconda3\\Library\\.\\mkspecs\\win32-msvc -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd /FoCMakeFiles\\Chess.dir\\mainwindow.cpp.obj /FdCMakeFiles\\Chess.dir\\ /FS -c C:\\gitRepos\\QtChessAI\\Chess\\mainwindow.cpp",
+  "file": "C:/gitRepos/QtChessAI/Chess/mainwindow.cpp",
+  "output": "CMakeFiles/Chess.dir/mainwindow.cpp.obj"
+},
+{
+  "directory": "C:/gitRepos/QtChessAI/build",
+  "command": "C:\\PROGRA~2\\MICROS~2\\18\\BUILDT~1\\VC\\Tools\\MSVC\\1450~1.357\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -IC:\\gitRepos\\QtChessAI\\build\\Chess_autogen\\include -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtWidgets -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtGui -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtANGLE -external:IC:\\Users\\198a9\\anaconda3\\Library\\include\\qt\\QtCore -external:IC:\\Users\\198a9\\anaconda3\\Library\\.\\mkspecs\\win32-msvc -external:W0 /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++17 -MDd /FoCMakeFiles\\Chess.dir\\ChessBoard.cpp.obj /FdCMakeFiles\\Chess.dir\\ /FS -c C:\\gitRepos\\QtChessAI\\Chess\\ChessBoard.cpp",
+  "file": "C:/gitRepos/QtChessAI/Chess/ChessBoard.cpp",
+  "output": "CMakeFiles/Chess.dir/ChessBoard.cpp.obj"
+}
+]

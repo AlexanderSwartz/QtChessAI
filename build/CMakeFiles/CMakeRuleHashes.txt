@@ -1,0 +1,4 @@
+# Hashes of file build rules.
+6ab3a4e367cc417c88dac74059ceaea9 C:/gitRepos/QtChessAI/Chess/Chess_en_AS.ts
+e0a6d53c79b36d7cbe34610b006f25ab CMakeFiles/Chess_autogen
+5f993eaebff77aa23212b28dfce5b4cd Chess_autogen/timestamp

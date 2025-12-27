@@ -1,0 +1,5 @@
+C:/gitRepos/QtChessAI/build/CMakeFiles/Chess.dir
+C:/gitRepos/QtChessAI/build/CMakeFiles/edit_cache.dir
+C:/gitRepos/QtChessAI/build/CMakeFiles/rebuild_cache.dir
+C:/gitRepos/QtChessAI/build/CMakeFiles/Chess_autogen_timestamp_deps.dir
+C:/gitRepos/QtChessAI/build/CMakeFiles/Chess_autogen.dir
