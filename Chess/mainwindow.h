@@ -31,6 +31,10 @@ private:
     void clearMoveIndicators();
     void showPawnMoves(int boardRow, int col, Piece p);
     void showKnightMoves(int boardRow, int col, Piece p);
+    void showBishopMoves(int boardRow, int col, Piece p);
+    void showRookMoves(int boardRow, int col, Piece p);
+    void showQueenMoves(int boardRow, int col, Piece p);
+    void showKingMoves(int boardRow, int col, Piece p);
     void updateBoardDisplay();
     bool isWhitePiece(Piece p);
 

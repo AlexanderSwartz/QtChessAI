@@ -131,8 +131,14 @@ void MainWindow::handleSquareClick(int visualRow, int col)
                 showPawnMoves(boardRow, col, p);
             } else if (p == WKNIGHT || p == BKNIGHT) {
                 showKnightMoves(boardRow, col, p);
-            } else if (p == WKNIGHT || p == BKNIGHT) {
-                showKnightMoves(boardRow, col, p);
+            } else if (p == WBISHOP || p == BBISHOP) {
+                showBishopMoves(boardRow, col, p);
+            } else if (p == WROOK || p == BROOK) {
+                showRookMoves(boardRow, col, p);
+            } else if (p == WQUEEN || p == BQUEEN) {
+                showQueenMoves(boardRow, col, p);
+            } else if (p == WKING || p == BKING) {
+                showKingMoves(boardRow, col, p);
             }
         }
     } else {
@@ -234,6 +240,114 @@ void MainWindow::showKnightMoves(int boardRow, int col, Piece p)
                 boardLabels[visualR][newCol]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
                 boardLabels[visualR][newCol]->setScaledContents(true);
                 hasMoveIndicator[visualR][newCol] = true;
+            }
+        }
+    }
+}
+
+void MainWindow::showBishopMoves(int boardRow, int col, Piece p)
+{
+    int directions[4][2] = {{1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+    for (int d = 0; d < 4; ++d) {
+        int dr = directions[d][0];
+        int dc = directions[d][1];
+        int r = boardRow + dr;
+        int c = col + dc;
+        while (r >= 0 && r < 8 && c >= 0 && c < 8) {
+            Piece target = board.getPiece(r, c);
+            if (target == EMPTY) {
+                int visualR = 7 - r;
+                boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                boardLabels[visualR][c]->setScaledContents(true);
+                hasMoveIndicator[visualR][c] = true;
+            } else {
+                if (isWhitePiece(target) != isWhitePiece(p)) {
+                    int visualR = 7 - r;
+                    boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                    boardLabels[visualR][c]->setScaledContents(true);
+                    hasMoveIndicator[visualR][c] = true;
+                }
+                break;
+            }
+            r += dr;
+            c += dc;
+        }
+    }
+}
+
+void MainWindow::showRookMoves(int boardRow, int col, Piece p)
+{
+    int directions[4][2] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    for (int d = 0; d < 4; ++d) {
+        int dr = directions[d][0];
+        int dc = directions[d][1];
+        int r = boardRow + dr;
+        int c = col + dc;
+        while (r >= 0 && r < 8 && c >= 0 && c < 8) {
+            Piece target = board.getPiece(r, c);
+            if (target == EMPTY) {
+                int visualR = 7 - r;
+                boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                boardLabels[visualR][c]->setScaledContents(true);
+                hasMoveIndicator[visualR][c] = true;
+            } else {
+                if (isWhitePiece(target) != isWhitePiece(p)) {
+                    int visualR = 7 - r;
+                    boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                    boardLabels[visualR][c]->setScaledContents(true);
+                    hasMoveIndicator[visualR][c] = true;
+                }
+                break;
+            }
+            r += dr;
+            c += dc;
+        }
+    }
+}
+
+void MainWindow::showQueenMoves(int boardRow, int col, Piece p)
+{
+    int directions[8][2] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+    for (int d = 0; d < 8; ++d) {
+        int dr = directions[d][0];
+        int dc = directions[d][1];
+        int r = boardRow + dr;
+        int c = col + dc;
+        while (r >= 0 && r < 8 && c >= 0 && c < 8) {
+            Piece target = board.getPiece(r, c);
+            if (target == EMPTY) {
+                int visualR = 7 - r;
+                boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                boardLabels[visualR][c]->setScaledContents(true);
+                hasMoveIndicator[visualR][c] = true;
+            } else {
+                if (isWhitePiece(target) != isWhitePiece(p)) {
+                    int visualR = 7 - r;
+                    boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                    boardLabels[visualR][c]->setScaledContents(true);
+                    hasMoveIndicator[visualR][c] = true;
+                }
+                break;
+            }
+            r += dr;
+            c += dc;
+        }
+    }
+}
+
+void MainWindow::showKingMoves(int boardRow, int col, Piece p)
+{
+    int directions[8][2] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}, {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+    for (int d = 0; d < 8; ++d) {
+        int r = boardRow + directions[d][0];
+        int c = col + directions[d][1];
+        if (r >= 0 && r < 8 && c >= 0 && c < 8) {
+            Piece target = board.getPiece(r, c);
+            if (target == EMPTY || isWhitePiece(target) != isWhitePiece(p)) {
+                int visualR = 7 - r;
+                boardLabels[visualR][c]->setPixmap(QPixmap("../Chess/pieces/g-dot2.png"));
+                boardLabels[visualR][c]->setScaledContents(true);
+                hasMoveIndicator[visualR][c] = true;
             }
         }
     }
